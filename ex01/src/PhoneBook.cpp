@@ -30,14 +30,29 @@ bool PhoneBook::add_contact(void)
 
 bool PhoneBook::search_contact(std::string buffer)
 {
-	std::cout << "|Index     |First Name|Last Name |Nick Name|" << std::endl;
-	for (int i = 0; i < 8; i++)
+	if (buffer == "SEARCH")
 	{
-		std::cout << "|";
-		std::cout << PhoneBook::contact[i].getIndex();
-		std::cout << "|";
+		std::cout << "|  Index   |First Name|Last Name |Nick Name |" << std::endl;
+		for (int i = 0; i < 8; i++)
+		{
+			std::cout << "|";
+			std::cout << std::setw(10);
+			std::cout << PhoneBook::contact[i].getIndex();
+			std::cout << "|";
+			std::cout << std::setw(10);
+			std::cout << PhoneBook::contact[i].getFirstName();
+			std::cout << "|";
+			std::cout << std::setw(10);
+			std::cout << PhoneBook::contact[i].getLastName();
+			std::cout << "|";
+			std::cout << std::setw(10);
+			std::cout << PhoneBook::contact[i].getNickName();
+			std::cout << "|";
+			std::cout << std::endl;
+		}
+		return true;
 	}
-	return true;
+	return false;
 }
 
 void PhoneBook::exit(void)
