@@ -34,7 +34,7 @@ int	main(void)
 			}
 			else if (buffer == "SEARCH")
 			{
-
+				phoneBook.search_contact(buffer);
 			}
 			else if (buffer == "EXIT")
 			{

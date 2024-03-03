@@ -21,7 +21,7 @@ class PhoneBook
 		Contact contact[8];
 
 		bool add_contact();
-		bool search_contact();
+		bool search_contact(std::string buffer);
 		void exit();
 
 		PhoneBook();
