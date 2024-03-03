@@ -6,7 +6,7 @@
 /*   By: bcarolle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 19:03:47 by bcarolle          #+#    #+#             */
-/*   Updated: 2024/03/03 13:48:53 by bcarolle         ###   ########.fr       */
+/*   Updated: 2024/03/03 16:23:19 by bcarolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 Contact::Contact(void)
 {
 	setIndex(0);
-	setFirstName(NULL);
-	setLastName(NULL);
-	setNickName(NULL);
+	setFirstName("");
+	setLastName("");
+	setNickName("");
 	return;
 }
 

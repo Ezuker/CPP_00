@@ -6,7 +6,7 @@
 /*   By: bcarolle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 19:02:56 by bcarolle          #+#    #+#             */
-/*   Updated: 2024/03/03 13:43:09 by bcarolle         ###   ########.fr       */
+/*   Updated: 2024/03/03 16:51:57 by bcarolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <iomanip>
 # include <string>
+# include <cstring>
 
 class Contact
 {

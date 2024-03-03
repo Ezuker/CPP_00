@@ -6,7 +6,7 @@
 /*   By: bcarolle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 18:48:52 by bcarolle          #+#    #+#             */
-/*   Updated: 2024/03/03 13:52:06 by bcarolle         ###   ########.fr       */
+/*   Updated: 2024/03/03 18:43:05 by bcarolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ PhoneBook::~PhoneBook(void)
 
 bool PhoneBook::add_contact(void)
 {
-	return;
+	return true;
 }
 
 bool PhoneBook::search_contact(void)
 {
-	return;
+	return true;
 }
 
 void PhoneBook::exit(void)
