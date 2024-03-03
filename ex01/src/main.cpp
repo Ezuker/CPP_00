@@ -6,13 +6,15 @@
 /*   By: bcarolle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 18:52:39 by bcarolle          #+#    #+#             */
-/*   Updated: 2024/03/02 19:01:42 by bcarolle         ###   ########.fr       */
+/*   Updated: 2024/03/03 13:27:01 by bcarolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#include "PhoneBook.hpp"
 
 int	main(void)
 {
+	PhoneBook phoneBook;
+
 	
 }
