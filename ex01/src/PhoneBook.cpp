@@ -6,7 +6,7 @@
 /*   By: bcarolle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 18:48:52 by bcarolle          #+#    #+#             */
-/*   Updated: 2024/03/03 18:43:05 by bcarolle         ###   ########.fr       */
+/*   Updated: 2024/03/04 02:44:16 by bcarolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,21 @@ PhoneBook::~PhoneBook(void)
 
 bool PhoneBook::add_contact(void)
 {
+	std::string buffer;
+
+	if (PhoneBook::_indexOldest == 8)
+		PhoneBook::_indexOldest = 0;
+	PhoneBook::contact[PhoneBook::_indexOldest].setIndex(PhoneBook::_indexOldest);
+	std::cout << "Please, enter the first name: ";
+	std::cin >> buffer;
+	PhoneBook::contact[PhoneBook::_indexOldest].setFirstName(buffer);
+	std::cout << "Please, enter the last name: ";
+	std::cin >> buffer;
+	PhoneBook::contact[PhoneBook::_indexOldest].setLastName(buffer);
+	std::cout << "Please, enter the nick name: ";
+	std::cin >> buffer;
+	PhoneBook::contact[PhoneBook::_indexOldest].setNickName(buffer);
+	PhoneBook::_indexOldest++;
 	return true;
 }
 
@@ -37,7 +52,7 @@ bool PhoneBook::search_contact(std::string buffer)
 		{
 			std::cout << "|";
 			std::cout << std::setw(10);
-			std::cout << PhoneBook::contact[i].getIndex();
+			std::cout << PhoneBook::contact[i].getIndex() + 1;
 			std::cout << "|";
 			std::cout << std::setw(10);
 			std::cout << PhoneBook::contact[i].getFirstName();
@@ -52,10 +67,9 @@ bool PhoneBook::search_contact(std::string buffer)
 		}
 		return true;
 	}
+	else if (buffer.length() == 1 && isdigit(buffer[0]) && buffer[0] < '9')
+	{
+		std::cout << "Information of the" << PhoneBook::contact[0].getIndex() << std::endl;
+	}
 	return false;
-}
-
-void PhoneBook::exit(void)
-{
-	return;
 }

@@ -6,7 +6,7 @@
 /*   By: bcarolle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 18:41:47 by bcarolle          #+#    #+#             */
-/*   Updated: 2024/03/03 13:43:55 by bcarolle         ###   ########.fr       */
+/*   Updated: 2024/03/04 01:50:48 by bcarolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ class PhoneBook
 
 		bool add_contact();
 		bool search_contact(std::string buffer);
-		void exit();
 
 		PhoneBook();
 		~PhoneBook();
 
 	private:
 		int	_indexOldest;
+		int	_isFull;
 };
 
 #endif
