@@ -6,7 +6,7 @@
 /*   By: bcarolle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 19:03:47 by bcarolle          #+#    #+#             */
-/*   Updated: 2024/03/04 02:09:13 by bcarolle         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:51:02 by bcarolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 Contact::Contact(void)
 {
-	setIndex(0);
+	_nbContacts++;
+	setIndex(_nbContacts);
 	setFirstName("");
 	setLastName("");
 	setNickName("");
+	setDarkestSecret("");
 	return;
 }
 
@@ -65,3 +67,20 @@ void Contact::setNickName(std::string value)
 {
 	this->_nickName = value;
 }
+
+int Contact::getNbContacts()
+{
+	return (Contact::_nbContacts);
+}
+
+std::string Contact::getDarkestSecret() const
+{
+	return (this->_darkestSecret);
+}
+
+void Contact::setDarkestSecret(std::string value)
+{
+	this->_darkestSecret = value;
+}
+
+int Contact::_nbContacts = 0;
