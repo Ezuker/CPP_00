@@ -6,7 +6,7 @@
 /*   By: bcarolle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 18:52:39 by bcarolle          #+#    #+#             */
-/*   Updated: 2024/03/04 17:30:19 by bcarolle         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:09:12 by bcarolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,11 @@ int	main()
 				return (0);
 			}
 			else
+			{
+				while (std::cin.peek() != '\n')
+					std::cin.ignore();
 				std::cout << "Wrong command: try using ADD, SEARCH or EXIT" << std::endl;
+			}
 		}
 	}
 	return (0);

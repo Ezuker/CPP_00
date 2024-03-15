@@ -6,7 +6,7 @@
 /*   By: bcarolle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 18:48:52 by bcarolle          #+#    #+#             */
-/*   Updated: 2024/03/04 17:20:41 by bcarolle         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:16:38 by bcarolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,22 @@ PhoneBook::~PhoneBook(void)
 	return;
 }
 
+static std::string	getInfo()
+{
+	std::string	buffer;
+	std::string	tmp;
+
+	std::cin >> buffer;
+	while (std::cin.peek() != '\n')
+	{
+		buffer += " ";
+		tmp = buffer;
+		std::cin >> buffer;
+		buffer = tmp + buffer;
+	}
+	return (buffer);
+}
+
 bool PhoneBook::add_contact(void)
 {
 	std::string buffer;
@@ -31,16 +47,16 @@ bool PhoneBook::add_contact(void)
 		PhoneBook::_indexOldest = 1;
 	PhoneBook::contact[PhoneBook::_indexOldest - 1].setIndex(PhoneBook::_indexOldest);
 	std::cout << "Please, enter the first name: ";
-	std::cin >> buffer;
+	buffer = getInfo();
 	PhoneBook::contact[PhoneBook::_indexOldest - 1].setFirstName(buffer);
 	std::cout << "Please, enter the last name: ";
-	std::cin >> buffer;
+	buffer = getInfo();
 	PhoneBook::contact[PhoneBook::_indexOldest - 1].setLastName(buffer);
 	std::cout << "Please, enter the nick name: ";
-	std::cin >> buffer;
+	buffer = getInfo();
 	PhoneBook::contact[PhoneBook::_indexOldest - 1].setNickName(buffer);
 	std::cout << "Please, enter his darkest secret: ";
-	std::cin >> buffer;
+	buffer = getInfo();
 	PhoneBook::contact[PhoneBook::_indexOldest - 1].setDarkestSecret(buffer);
 	PhoneBook::_indexOldest++;
 	return true;
