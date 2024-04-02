@@ -6,7 +6,7 @@
 /*   By: bcarolle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 18:41:47 by bcarolle          #+#    #+#             */
-/*   Updated: 2024/03/04 01:50:48 by bcarolle         ###   ########.fr       */
+/*   Updated: 2024/04/02 10:40:47 by bcarolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 
 # include "Contact.hpp"
 
-class PhoneBook 
+class PhoneBook
 {
 	public:
-		Contact contact[8];
-
-		bool add_contact();
-		bool search_contact(std::string buffer);
-
 		PhoneBook();
 		~PhoneBook();
 
+		bool	add_contact();
+		bool	search_contact();
+		void	display_contact();
+		
+		Contact*	getContact();
 	private:
-		int	_indexOldest;
-		int	_isFull;
+		Contact	_contact[8];
+		int		_indexOldest;
 };
 
 #endif

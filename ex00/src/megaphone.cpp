@@ -6,7 +6,7 @@
 /*   By: bcarolle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 18:26:42 by bcarolle          #+#    #+#             */
-/*   Updated: 2024/03/03 13:10:47 by bcarolle         ###   ########.fr       */
+/*   Updated: 2024/03/30 00:25:48 by bcarolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int main (int argc, char *argv[])
 	}
 	for (int i = 1; i < argc; i++)
 	{
-		for (size_t j = 0; j < strlen(argv[i]); j++)
+		std::string string = argv[i];
+		for (size_t j = 0; j < string.length(); j++)
 		{
 			argv[i][j] = toupper(argv[i][j]);
 			std::cout << argv[i][j];
