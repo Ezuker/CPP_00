@@ -6,7 +6,7 @@
 /*   By: bcarolle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 18:48:52 by bcarolle          #+#    #+#             */
-/*   Updated: 2024/04/02 10:38:43 by bcarolle         ###   ########.fr       */
+/*   Updated: 2024/04/02 15:17:14 by bcarolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,10 @@ bool PhoneBook::add_contact()
 	if (buffer == "")
 		return false;
 	this->getContact()[this->_indexOldest - 1].setNickName(buffer);
+	buffer = getInfo("Please, enter his phone number:");
+	if (buffer == "")
+		return false;
+	this->getContact()[this->_indexOldest - 1].setPhoneNumber(buffer);
 	buffer = getInfo("Please, enter his darkest secret:");
 	if (buffer == "")
 		return false;
@@ -162,5 +166,7 @@ bool PhoneBook::search_contact()
 	std::cout << "First Name: " << this->getContact()[index - 1].getFirstName() << std::endl;
 	std::cout << "Last Name: " << this->getContact()[index - 1].getLastName() << std::endl;
 	std::cout << "Nick Name: " << this->getContact()[index - 1].getNickName() << std::endl;
+	std::cout << "Phone Number: " << this->getContact()[index - 1].getPhoneNumber() << std::endl;
+	std::cout << "His Darkest Secret: " << this->getContact()[index - 1].getDarkestSecret() << std::endl;
 	return (true);
 }

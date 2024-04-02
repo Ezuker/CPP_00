@@ -6,7 +6,7 @@
 /*   By: bcarolle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 19:02:56 by bcarolle          #+#    #+#             */
-/*   Updated: 2024/03/29 05:01:54 by bcarolle         ###   ########.fr       */
+/*   Updated: 2024/04/02 15:13:51 by bcarolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class Contact
 		std::string	getLastName() const;
 		std::string	getNickName() const;
 		std::string	getDarkestSecret() const;
+		std::string	getPhoneNumber() const;
 		static int	getNbContacts();
 
 		void		setIndex(int value);
@@ -36,14 +37,15 @@ class Contact
 		void		setLastName(std::string value);
 		void		setNickName(std::string value);
 		void		setDarkestSecret(std::string value);
+		void		setPhoneNumber(std::string value);
 
 	private:
 		int			_index;
-		static int	_nbContacts;
 		std::string	_firstName;
 		std::string	_lastName;
 		std::string	_nickName;
 		std::string	_darkestSecret;
+		std::string	_phoneNumber;
 };
 
 #endif
