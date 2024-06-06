@@ -6,7 +6,7 @@
 /*   By: bcarolle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 19:03:47 by bcarolle          #+#    #+#             */
-/*   Updated: 2024/04/02 15:14:40 by bcarolle         ###   ########.fr       */
+/*   Updated: 2024/05/11 02:38:09 by bcarolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,6 @@ void	Contact::setLastName(std::string value)
 void	Contact::setNickName(std::string value)
 {
 	this->_nickName = value;
-}
-
-int	Contact::getNbContacts()
-{
-	return (Contact::_nbContacts);
 }
 
 std::string	Contact::getDarkestSecret() const

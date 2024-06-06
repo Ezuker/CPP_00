@@ -6,7 +6,7 @@
 /*   By: bcarolle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 18:48:52 by bcarolle          #+#    #+#             */
-/*   Updated: 2024/04/02 15:17:14 by bcarolle         ###   ########.fr       */
+/*   Updated: 2024/06/06 16:19:52 by bcarolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,15 @@ bool PhoneBook::add_contact()
 	if (buffer == "")
 		return false;
 	this->getContact()[this->_indexOldest - 1].setLastName(buffer);
-	buffer = getInfo("Please, enter the nick name:");
+	buffer = getInfo("Please, enter the nick name: ");
 	if (buffer == "")
 		return false;
 	this->getContact()[this->_indexOldest - 1].setNickName(buffer);
-	buffer = getInfo("Please, enter his phone number:");
+	buffer = getInfo("Please, enter his phone number: ");
 	if (buffer == "")
 		return false;
 	this->getContact()[this->_indexOldest - 1].setPhoneNumber(buffer);
-	buffer = getInfo("Please, enter his darkest secret:");
+	buffer = getInfo("Please, enter his darkest secret: ");
 	if (buffer == "")
 		return false;
 	this->getContact()[this->_indexOldest - 1].setDarkestSecret(buffer);
@@ -76,63 +76,34 @@ bool PhoneBook::add_contact()
 	return true;
 }
 
+static	void display_info(size_t length, std::string name)
+{
+	if (length > 10)
+	{
+		std::cout.width(9);
+		std::cout << std::right << name.substr(0, 9);
+		std::cout << ".";
+	}
+	else
+	{
+		std::cout.width(10);
+		std::cout << std::right << name;
+	}
+	std::cout << "|";
+}
+
 void	PhoneBook::display_contact()
 {
-	std::cout << "|  Index   |First Name|Last Name |Nick Name |His secret|" << std::endl;
+	std::cout << "|  Index   |First Name|Last Name |Nick Name |" << std::endl;
 	for (int i = 0; i < 8; i++)
 	{
 		std::cout << "|";
 		std::cout.width(10);
 		std::cout << std::right << i + 1;
 		std::cout << "|";
-		if (this->getContact()[i].getFirstName().length() > 10)
-		{
-			std::cout.width(9);
-			std::cout << std::right << this->getContact()[i].getFirstName().substr(0, 9);
-			std::cout << ".";
-		}
-		else
-		{
-			std::cout.width(10);
-			std::cout << std::right << this->getContact()[i].getFirstName();
-		}
-		std::cout << "|";
-		if (this->getContact()[i].getLastName().length() > 10)
-		{
-			std::cout.width(9);
-			std::cout << std::right << this->getContact()[i].getLastName().substr(0, 9);
-			std::cout << ".";
-		}
-		else
-		{
-			std::cout.width(10);
-			std::cout << std::right << this->getContact()[i].getLastName();
-		}
-		std::cout << "|";
-		if (this->getContact()[i].getNickName().length() > 10)
-		{
-			std::cout.width(9);
-			std::cout << std::right << this->getContact()[i].getNickName().substr(0, 9);
-			std::cout << ".";
-		}
-		else
-		{
-			std::cout.width(10);
-			std::cout << std::right << this->getContact()[i].getNickName();
-		}
-		std::cout << "|";
-		if (this->getContact()[i].getDarkestSecret().length() > 10)
-		{
-			std::cout.width(9);
-			std::cout << std::right << this->getContact()[i].getDarkestSecret().substr(0, 9);
-			std::cout << ".";
-		}
-		else
-		{
-			std::cout.width(10);
-			std::cout << std::right << this->getContact()[i].getDarkestSecret();
-		}
-		std::cout << "|";
+		display_info(this->getContact()[i].getFirstName().length(), this->getContact()[i].getFirstName());
+		display_info(this->getContact()[i].getLastName().length(), this->getContact()[i].getLastName());
+		display_info(this->getContact()[i].getNickName().length(), this->getContact()[i].getNickName());
 		std::cout << std::endl;
 	}
 }
@@ -143,9 +114,9 @@ bool PhoneBook::search_contact()
 	int			index;
 
 	this->display_contact();
-	std::cout << "Please, enter the index of the contact you want to see: ";
 	while (1)
 	{
+		std::cout << "Please, enter the index of the contact you want to see: ";
 		getline(std::cin, buffer);
 		if (std::cin.eof())
 		{
@@ -162,7 +133,7 @@ bool PhoneBook::search_contact()
 		}
 	}
 	std::cout << "Information of the Contact" << std::endl;
-	std::cout << "Index: " << this->getContact()[index - 1].getIndex() << std::endl;
+	std::cout << "Index: " << index << std::endl;
 	std::cout << "First Name: " << this->getContact()[index - 1].getFirstName() << std::endl;
 	std::cout << "Last Name: " << this->getContact()[index - 1].getLastName() << std::endl;
 	std::cout << "Nick Name: " << this->getContact()[index - 1].getNickName() << std::endl;
