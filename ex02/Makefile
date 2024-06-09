@@ -24,11 +24,11 @@ _ICYAN=$'\033[46m
 _IWHITE=$'\033[47m
 
 SRC = \
-	src/Account.cpp \
-	src/tests.cpp \
+	Account.cpp \
+	tests.cpp \
 
 INCLUDES = \
-	-I./include/ \
+	-I . \
 
 OBJ = $(SRC:%.cpp=$(BUILD_DIR)%.o)
 BUILD_DIR = ./build/

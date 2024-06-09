@@ -6,7 +6,7 @@
 /*   By: bcarolle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 18:48:52 by bcarolle          #+#    #+#             */
-/*   Updated: 2024/06/06 16:19:52 by bcarolle         ###   ########.fr       */
+/*   Updated: 2024/06/09 17:12:47 by bcarolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,9 @@ bool PhoneBook::add_contact()
 	return true;
 }
 
-static	void display_info(size_t length, std::string name)
+static	void display_info(std::string name)
 {
-	if (length > 10)
+	if (name.length() > 10)
 	{
 		std::cout.width(9);
 		std::cout << std::right << name.substr(0, 9);
@@ -94,16 +94,16 @@ static	void display_info(size_t length, std::string name)
 
 void	PhoneBook::display_contact()
 {
-	std::cout << "|  Index   |First Name|Last Name |Nick Name |" << std::endl;
+	std::cout << "|     Index|First Name| Last Name| Nick Name|" << std::endl;
 	for (int i = 0; i < 8; i++)
 	{
 		std::cout << "|";
 		std::cout.width(10);
 		std::cout << std::right << i + 1;
 		std::cout << "|";
-		display_info(this->getContact()[i].getFirstName().length(), this->getContact()[i].getFirstName());
-		display_info(this->getContact()[i].getLastName().length(), this->getContact()[i].getLastName());
-		display_info(this->getContact()[i].getNickName().length(), this->getContact()[i].getNickName());
+		display_info(this->getContact()[i].getFirstName());
+		display_info(this->getContact()[i].getLastName());
+		display_info(this->getContact()[i].getNickName());
 		std::cout << std::endl;
 	}
 }
@@ -123,7 +123,7 @@ bool PhoneBook::search_contact()
 			std::cout << "EOF detected, exit." << std::endl;
 			return (false);
 		}
-		if (buffer.length() == 1)
+		if (buffer.length() == 1 && std::isdigit(buffer[0]))
 		{
 			index = buffer[0] - 48;
 			if (index < 1 || index > 8)
@@ -131,6 +131,8 @@ bool PhoneBook::search_contact()
 			else
 				break;
 		}
+		else
+			std::cout << "Wrong index." << std::endl;
 	}
 	std::cout << "Information of the Contact" << std::endl;
 	std::cout << "Index: " << index << std::endl;
